@@ -20,16 +20,15 @@ class sauce(unittest.TestCase):
                         "browser-version": "3.",\
                         "job-name": "This is an example test"\
                     }""" % (saucelabs_username, saucelabs_password),
-                    'http://www.saucehudson.com/')
+                    'http://184.104.14.3:8000/')
         self.browser.start()
         self.browser.set_timeout(90000)
         
     def test_sauce(self):
         browser = self.browser
         browser.open("/")
-        while True:
-            self.assertEqual("Hello, Hudson and Sauce!",
-                    browser.get_title())
+        self.assertEqual("Hello, Hudson and Sauce",
+                browser.get_title())
     
     def tearDown(self):
         self.browser.stop()
