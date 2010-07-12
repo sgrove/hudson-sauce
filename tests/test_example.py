@@ -1,7 +1,8 @@
 from selenium import selenium
 import unittest
+import nose
 
-raw = open("tsts/saucelabs_account", "r").read().partition("\n")
+raw = open("tests/saucelabs_account", "r").read().partition("\n")
 
 saucelabs_username = raw[0]
 saucelabs_password = raw[2][0:-1]
@@ -34,4 +35,4 @@ class sauce(unittest.TestCase):
         self.browser.stop()
 
 if __name__ == "__main__":
-    unittest.main()
+    nose.main()
